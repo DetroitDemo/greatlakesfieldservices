@@ -239,7 +239,8 @@
 
     /* Responsive */
     @media (max-width: 980px){
-    #pilot{scroll-margin-top: 28px;}
+    /* Ensure the fixed mobile top bar doesn't cover the Pilot / Onboarding header when jumping via anchor */
+    #pilot{scroll-margin-top: calc(132px + env(safe-area-inset-top));}
 
       /* Keep the top bar fixed on mobile so it doesn't scroll away */
       .top{
