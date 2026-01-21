@@ -341,37 +341,66 @@
 }
 
 
-/* === Mobile header fixes (no sticky + centered) === */
+/* === Mobile Header: static + clean glass card === */
 @media (max-width: 820px){
-  /* If header/topbar is sticky/fixed on desktop, turn it off on mobile */
-  header, .header, .topbar, .site-header, .top, .topBar {
+  /* make header static on mobile */
+  header, .header, .topbar, .site-header, .top, .topBar{
     position: static !important;
     top: auto !important;
   }
 
-  /* Prevent any horizontal drift */
-  html, body { overflow-x: hidden; }
-
-  /* Center the header container/pill */
-  .container, .header__inner, .topbar__inner, .topbar-inner, .nav-wrap {
-    max-width: 100% !important;
-  }
-
-  /* If your header uses a “pill” wrapper, make it full-width and centered */
+  /* center the header block */
   .topbar, .header, .site-header{
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: calc(100% - 24px) !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
+    width: calc(100% - 20px) !important;
+    margin: 12px auto 10px auto !important;
+    border-radius: 20px !important;
+    background: linear-gradient(180deg, rgba(10,18,35,0.78), rgba(10,18,35,0.55)) !important;
+    border: 1px solid rgba(255,255,255,0.14) !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35) !important;
+    backdrop-filter: blur(10px) !important;
   }
 
-  /* Make nav links wrap nicely */
-  nav a { white-space: nowrap; }
+  .header__inner, .topbar__inner, .topbar-inner{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+    padding: 12px 12px 12px 12px !important;
+  }
 
-  /* Tighten logo/brand and ensure centering */
-  .brand, .brand__text { align-items: center !important; }
+  /* Brand */
+  .brand__name{ font-size: 16px !important; line-height: 1.1 !important; }
+  .brand__tag{ font-size: 12px !important; opacity: .85 !important; }
+
+  /* Nav links grid */
+  nav, .nav{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+  nav a, .nav a{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 10px 10px !important;
+    border-radius: 14px !important;
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+  }
+
+  /* Make the CTA button big and obvious */
+  .nav__cta{
+    grid-column: 1 / -1 !important;
+    font-weight: 800 !important;
+    background: rgba(59,130,246,0.28) !important;
+    border-color: rgba(59,130,246,0.40) !important;
+  }
+
+  /* Prevent iOS zoom on inputs */
+  input, select, textarea { font-size: 16px !important; }
 }
 </style>
 </head>
@@ -395,6 +424,7 @@
           <a href="#coverage">Coverage</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+        <a href="#work" class="nav__cta">Join Our Vendor Network</a>
         </nav>
 
         <div class="actions"><a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
@@ -569,11 +599,11 @@
         <div class="cf-field cf-span2">
           <label for="cf-service">Service Needed</label>
           <select id="cf-service" name="service">
-            <option value="Exterior Inspection">Exterior Inspection</option>
-            <option value="Interior / Vacant Inspection">Interior / Vacant Inspection</option>
-            <option value="Occupancy Verification">Occupancy Verification</option>
-            <option value="Other">Other</option>
-          </select>
+  <option value="Exterior Occupancy Inspections">Exterior Occupancy Inspections</option>
+  <option value="Interior (Vacancy) Inspections">Interior (Vacancy) Inspections</option>
+  <option value="Both Interior &amp; Exterior">Both Interior &amp; Exterior</option>
+  <option value="Other">Other</option>
+</select>
         </div>
 
         <div class="cf-field cf-span2">
@@ -604,6 +634,89 @@
   </div>
 </div>
 </section>
+
+<section id="work" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Join Our Vendor Network</h2>
+      <p>Looking for consistent inspection work? Apply once and we’ll reach out when we have coverage needs in your area.</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-card">
+        <h3>What we look for</h3>
+        <ul class="vendor-list">
+          <li>Reliable vehicle + smartphone</li>
+          <li>Strong exterior/interior photo documentation</li>
+          <li>On-time submissions (24–48 hours typical)</li>
+          <li>Safety-first decisions &amp; clear reporting</li>
+          <li>Professional communication</li>
+        </ul>
+        <p class="small">Tip: Tell us your counties/states and your typical turnaround.</p>
+      </div>
+
+      <div class="contact-card">
+        <form class="vendor-form" action="https://formspree.io/f/xpqqyvwr" method="POST">
+          <!-- Anti-spam (honeypot): humans leave this blank -->
+          <div class="hp" aria-hidden="true">
+            <label>Leave this field blank
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+          <input type="hidden" name="inquiry_type" value="Vendor Network" />
+          <input type="hidden" name="page_url" value="" />
+          <input type="hidden" name="submitted_at" value="" />
+
+          <div class="cf-head">
+            <h3 class="cf-title">Vendor Application</h3>
+            <p class="cf-sub">Submit your info and we’ll contact you when work is available in your area.</p>
+          </div>
+
+          <div class="cf-grid">
+            <div class="cf-field">
+              <label for="vf-name">Full Name <span class="req">*</span></label>
+              <input id="vf-name" name="vendor_name" type="text" required autocomplete="name" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-email">Email <span class="req">*</span></label>
+              <input id="vf-email" name="vendor_email" type="email" required autocomplete="email" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-phone">Phone</label>
+              <input id="vf-phone" name="vendor_phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-area">Coverage Area <span class="req">*</span></label>
+              <input id="vf-area" name="coverage_area" type="text" required placeholder="e.g., Cleveland OH / Cuyahoga County" />
+            </div>
+            <div class="cf-field cf-span2">
+              <label for="vf-exp">Experience</label>
+              <select id="vf-exp" name="experience">
+                <option value="New to inspections">New to inspections</option>
+                <option value="1–2 years">1–2 years</option>
+                <option value="3–5 years">3–5 years</option>
+                <option value="5+ years">5+ years</option>
+              </select>
+            </div>
+            <div class="cf-field cf-span2">
+              <label for="vf-notes">Notes <span class="req">*</span></label>
+              <textarea id="vf-notes" name="vendor_notes" required rows="7" placeholder="Turnaround, tools/vehicle, and what makes you reliable."></textarea>
+            </div>
+          </div>
+
+          <input type="hidden" name="_subject" value="GLFS Vendor Network Application" />
+          <button class="cf-btn" type="submit">Submit Application</button>
+
+          <div class="cf-feedback" aria-live="polite">
+            <div class="cf-success" hidden>✅ Thanks — application received. We’ll reach out when we have work in your area.</div>
+            <div class="cf-error" hidden>⚠️ Sorry — something went wrong. Please email ops@greatlakesfieldservices.com.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       © 2026 Great Lakes Field Services LLC • Michigan Field Inspection Services
