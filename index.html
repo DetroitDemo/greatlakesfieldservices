@@ -31,6 +31,9 @@
       overflow-x:hidden;
     }
 
+    /* Anchor offset so the pilot form doesn't land under the desktop header */
+    #pilot{scroll-margin-top: 110px;}
+
     /* FULL-PAGE BACKGROUND (no stretch, crops as needed) */
     .bg{
       position:fixed;
@@ -549,7 +552,7 @@
 
         <div class="actions">
           <a class="btn mobile-cta" href="#work">Join Our Vendor Network</a>
-          <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
+          <a class="btn primary" href="#pilot">Request a Pilot</a>
         </div>
       </div>
     </div>
@@ -566,7 +569,7 @@
         </div>
 
         <div class="chips" style="margin-top:12px;">
-          <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services&body=Hi%20GLFS%20Ops%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20pilot%20for%20field%20inspections%20in%20Michigan.%20Please%20contact%20me%20at%3A%0A%0ACompany%3A%0AName%3A%0APhone%3A%0AVolume%20%2F%20counties%3A%0A%0AThanks%2C">Request a Pilot</a>
+          <a class="btn primary" href="#pilot">Request a Pilot</a>
           <a class="btn" href="#services">View Services</a>
           <a class="btn" href="mailto:skender@greatlakesfieldservices.com">Email Skender</a>
         </div>
@@ -679,6 +682,7 @@
     </section>
 
     <section id="contact" class="card">
+      <div id="pilot" aria-hidden="true"></div>
 <h2>Contact</h2><p>For pilot requests, onboarding, or coverage questions, send a message below. Typical response: 24–48 hours.</p>
 
 <div class="contact-layout">
