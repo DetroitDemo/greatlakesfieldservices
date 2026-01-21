@@ -339,6 +339,63 @@
   #contact .cf-grid{ grid-template-columns: 1fr; }
   #contact .cf-span2{ grid-column: auto; }
 }
+
+
+/* Nav CTA */
+.nav__cta{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+}
+.nav__cta:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+/* Vendor list */
+.vendor-list{
+  padding-left: 18px;
+  margin: 10px 0 0 0;
+  line-height: 1.5;
+}
+.vendor-list li{ margin: 8px 0; }
+
+/* Success / error */
+.cf-feedback{ margin-top: 12px; }
+.cf-success, .cf-error{
+  border-radius: 14px;
+  padding: 12px 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.22);
+}
+.cf-success{
+  border-color: rgba(34,197,94,0.35);
+}
+.cf-error{
+  border-color: rgba(239,68,68,0.35);
+}
+
+
+/* Bigger, clearer Vendor Network CTA */
+.nav__cta{
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(59,130,246,0.22);
+  border: 1px solid rgba(59,130,246,0.35);
+}
+.nav__cta:hover{
+  background: rgba(59,130,246,0.30);
+  border-color: rgba(59,130,246,0.50);
+}
+#work .section-head h2{
+  font-size: 2.0rem;
+  margin-bottom: 6px;
+}
+#work .section-head p{
+  font-size: 1.06rem;
+}
 </style>
 </head>
 
@@ -361,6 +418,7 @@
           <a href="#coverage">Coverage</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+        <a href="#work" class="nav__cta">Join Our Vendor Network</a>
         </nav>
 
         <div class="actions"><a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
@@ -566,14 +624,135 @@
       <input type="hidden" name="_subject" value="New GLFS website inquiry" />
       <button class="cf-btn" type="submit">Send Request</button>
       <p class="cf-note">We respond to legitimate vendor/bank inquiries. Marketing solicitations will not be returned.</p>
-    </form>
+    
+  <div class="cf-feedback" aria-live="polite">
+    <div class="cf-success" hidden>✅ Thanks — your request was submitted successfully. We’ll respond within 24–48 hours.</div>
+    <div class="cf-error" hidden>⚠️ Sorry — something went wrong. Please email ops@greatlakesfieldservices.com.</div>
+  </div>
+</form>
   </div>
 </div>
 </section>
+
+<section id="work" class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Join Our Vendor Network</h2>
+      <p>Join our vendor network for inspection overflow and multi-state expansion. If you’re consistent, photo-strong, and reliable, we want to hear from you.</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-card">
+        <h3>What we look for</h3>
+        <ul class="vendor-list">
+          <li>Smartphone + reliable vehicle</li>
+          <li>Strong exterior/interior photo documentation</li>
+          <li>On-time submissions (24–48h typical)</li>
+          <li>Comfortable with occupied/vacant scenarios and safety-first decisions</li>
+          <li>Professional communication and clean reporting</li>
+        </ul>
+        <p class="small">Tip: Tell us what counties/states you cover and how fast you can turn orders.</p>
+      </div>
+
+      <div class="contact-card">
+        <form class="vendor-form" action="https://formspree.io/f/xpqqyvwr" method="POST">
+          <div class="cf-head">
+            <h3 class="cf-title">Vendor Network Application</h3>
+            <p class="cf-sub">Submit once — we’ll reach out when we have work in your area.</p>
+          </div>
+
+          <div class="cf-grid">
+            <div class="cf-field">
+              <label for="vf-name">Full Name <span class="req">*</span></label>
+              <input id="vf-name" name="vendor_name" type="text" required autocomplete="name" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-email">Email <span class="req">*</span></label>
+              <input id="vf-email" name="vendor_email" type="email" required autocomplete="email" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-phone">Phone</label>
+              <input id="vf-phone" name="vendor_phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="cf-field">
+              <label for="vf-area">Coverage Area <span class="req">*</span></label>
+              <input id="vf-area" name="coverage_area" type="text" required placeholder="e.g., Cleveland OH / Cuyahoga County" />
+            </div>
+            <div class="cf-field cf-span2">
+              <label for="vf-exp">Experience</label>
+              <select id="vf-exp" name="experience">
+                <option value="New to inspections">New to inspections</option>
+                <option value="1–2 years">1–2 years</option>
+                <option value="3–5 years">3–5 years</option>
+                <option value="5+ years">5+ years</option>
+              </select>
+            </div>
+            <div class="cf-field cf-span2">
+              <label for="vf-notes">Notes <span class="req">*</span></label>
+              <textarea id="vf-notes" name="vendor_notes" required rows="7" placeholder="Tell us your turnaround, tools/vehicle, and anything that makes you solid."></textarea>
+            </div>
+          </div>
+
+          <input type="hidden" name="_subject" value="GLFS Vendor Network Application" />
+          <input type="hidden" name="inquiry_type" value="Vendor Network" />
+          <button class="cf-btn" type="submit">Submit Application</button>
+
+          <div class="cf-feedback" aria-live="polite">
+            <div class="cf-success" hidden>✅ Thanks — application received. We’ll reach out when we have work in your area.</div>
+            <div class="cf-error" hidden>⚠️ Sorry — something went wrong. Please email ops@greatlakesfieldservices.com.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <footer>
       © 2026 Great Lakes Field Services LLC • Michigan Field Inspection Services
     </footer>
   </div>
+<script>
+/* glfsFormspreeAjax: keep submissions on-page + show inline success */
+(function(){
+  function wire(form){
+    if(!form) return;
+    form.addEventListener('submit', async function(e){
+      e.preventDefault();
+      const success = form.querySelector('.cf-success');
+      const error = form.querySelector('.cf-error');
+      if(success) success.hidden = true;
+      if(error) error.hidden = true;
+
+      const btn = form.querySelector('button[type="submit"]');
+      const original = btn ? btn.textContent : null;
+      if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      try{
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if(res.ok){
+          form.reset();
+          if(success){ success.hidden = false; success.scrollIntoView({behavior:'smooth', block:'nearest'}); }
+        }else{
+          if(error){ error.hidden = false; }
+        }
+      }catch(err){
+        if(error){ error.hidden = false; }
+      }finally{
+        if(btn){ btn.disabled = false; btn.textContent = original || 'Send'; }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    wire(document.querySelector('form.contact-form'));
+    wire(document.querySelector('form.vendor-form'));
+  });
+})();
+</script>
 </body>
 </html>
