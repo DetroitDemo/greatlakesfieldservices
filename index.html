@@ -239,7 +239,7 @@
         position:fixed;
         top:0; left:0; right:0;
         z-index:1000;
-        padding:10px 12px;
+        padding: calc(10px + env(safe-area-inset-top)) 10px 10px;
         display:flex;
         justify-content:center;
         background: rgba(8,12,20,.55);
@@ -247,7 +247,7 @@
       }
       .topbar{
         width:100%;
-        max-width: var(--max);
+        max-width: 100%;
         border-radius: 18px;
         padding:12px 14px;
         gap:10px;
@@ -277,7 +277,7 @@
         justify-content:center;
       }
       /* More top padding so content never hides under the fixed, multi-row nav */
-      .wrap{padding:156px 18px 70px;}
+      .wrap{padding: calc(178px + env(safe-area-inset-top)) 12px 70px;}
 
       .hero{grid-template-columns:1fr;}
       .brand{min-width: unset;}
