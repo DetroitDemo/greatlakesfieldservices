@@ -240,7 +240,106 @@
       .two{grid-template-columns:1fr;}
       h1{font-size:34px;}
     }
-  </style>
+  
+
+/* === Sexy Contact Layout (GLFS) === */
+#contact .contact-layout{
+  display:grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  gap: 22px;
+  align-items:start;
+  margin-top: 14px;
+}
+#contact .contact-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+}
+#contact .contact-card a{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+}
+#contact .contact-card a:hover{ border-bottom-color: rgba(255,255,255,0.8); }
+#contact .contact-card h3{ margin: 0 0 10px 0; letter-spacing: .2px; }
+#contact .contact-card p{ margin: 10px 0; line-height: 1.4; }
+#contact .contact-card .small{ opacity:.86; font-size:.95rem; }
+
+#contact .cf-head{ margin-bottom: 14px; }
+#contact .cf-title{ margin:0 0 6px 0; font-size: 1.12rem; letter-spacing:.2px; }
+#contact .cf-sub{ margin:0; opacity:.85; font-size:.95rem; line-height: 1.45; }
+
+#contact .cf-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 14px;
+  margin-top: 14px;
+}
+#contact .cf-field{
+  display:flex;
+  flex-direction: column;
+  gap: 7px;
+}
+#contact .cf-field label{
+  font-size: .92rem;
+  opacity: .92;
+}
+#contact .req{ color: #fbbf24; font-weight: 700; }
+#contact .cf-span2{ grid-column: 1 / -1; }
+
+#contact .contact-form input,
+#contact .contact-form select,
+#contact .contact-form textarea{
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 14px;
+  padding: 12px 13px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.22);
+  color: inherit;
+  outline: none;
+  transition: transform .08s ease, border-color .12s ease, background .12s ease;
+}
+#contact .contact-form input:focus,
+#contact .contact-form select:focus,
+#contact .contact-form textarea:focus{
+  border-color: rgba(255,255,255,0.45);
+  background: rgba(0,0,0,0.30);
+  transform: translateY(-1px);
+}
+#contact .contact-form textarea{
+  min-height: 160px;
+  resize: vertical;
+}
+#contact .cf-btn{
+  margin-top: 14px;
+  width: 100%;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 700;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(59,130,246,0.95);
+  color: #0b1020;
+  cursor: pointer;
+  transition: transform .08s ease, filter .12s ease;
+}
+#contact .cf-btn:hover{ filter: brightness(1.05); }
+#contact .cf-btn:active{ transform: translateY(1px); }
+#contact .cf-note{
+  margin: 10px 0 0 0;
+  font-size: .92rem;
+  opacity: .82;
+}
+
+@media (max-width: 920px){
+  #contact .contact-layout{ grid-template-columns: 1fr; }
+  #contact .cf-grid{ grid-template-columns: 1fr; }
+  #contact .cf-span2{ grid-column: auto; }
+}
+</style>
 </head>
 
 <body>
@@ -264,9 +363,7 @@
           <a href="#contact">Contact</a>
         </nav>
 
-        <div class="actions">
-          <a class="btn" href="tel:+1">Call </a>
-          <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
+        <div class="actions"><a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
         </div>
       </div>
     </div>
@@ -396,74 +493,82 @@
     </section>
 
     <section id="contact" class="card">
-  <div class="container">
-    <div class="section-head">
-      <h2>Contact</h2>
-      <p>For pilot requests, onboarding, or coverage questions, send a message below. We typically respond within 24–48 hours.</p>
-    </div>
-    <div class="contact-layout">
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p><a href="mailto:ops@greatlakesfieldservices.com">ops@greatlakesfieldservices.com</a></p>
-        <p><a href="mailto:billing@greatlakesfieldservices.com">billing@greatlakesfieldservices.com</a></p>
-        <p><a href="mailto:skender@greatlakesfieldservices.com">skender@greatlakesfieldservices.com</a></p>
-        <p class="small">Preferred: ops@ for new vendor/bank pilots.</p>
-      </div>
-      <div class="contact-card">
-        <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
-  <div class="form-grid">
-    <label>
-      <span>Full Name <em>*</em></span>
-      <input name="name" type="text" required autocomplete="name" />
-    </label>
-    <label>
-      <span>Company / Organization <em>*</em></span>
-      <input name="company" type="text" required autocomplete="organization" />
-    </label>
-    <label>
-      <span>Email <em>*</em></span>
-      <input name="email" type="email" required autocomplete="email" />
-    </label>
-    <label>
-      <span>Phone (optional)</span>
-      <input name="phone" type="tel" autocomplete="tel" />
-    </label>
-    <label class="span-2">
-      <span>Service Needed</span>
-      <select name="service">
-        <option value="Exterior Inspection">Exterior Inspection</option>
-        <option value="Interior / Vacant Inspection">Interior / Vacant Inspection</option>
-        <option value="Occupancy Verification">Occupancy Verification</option>
-        <option value="Other">Other</option>
-      </select>
-    </label>
-    <label class="span-2">
-      <span>Property Location (City / County / ZIP) <em>*</em></span>
-      <input name="location" type="text" required placeholder="e.g., Detroit, Wayne County 48201" />
-    </label>
-    <label class="span-2">
-      <span>Turnaround Requirement</span>
-      <select name="turnaround">
-        <option value="24 hours">24 hours</option>
-        <option value="48 hours">48 hours</option>
-        <option value="72 hours">72 hours</option>
-        <option value="Other">Other</option>
-      </select>
-    </label>
-    <label class="span-2">
-      <span>Message / Notes <em>*</em></span>
-      <textarea name="message" required rows="6" placeholder="Tell us what you need, volume, and any portal/reporting requirements."></textarea>
-    </label>
+<h2>Contact</h2><p>For pilot requests, onboarding, or coverage questions, send a message below. Typical response: 24–48 hours.</p>
+
+<div class="contact-layout">
+  <div class="contact-card">
+    <h3>Email</h3>
+    <p><a href="mailto:ops@greatlakesfieldservices.com">ops@greatlakesfieldservices.com</a></p>
+    <p><a href="mailto:billing@greatlakesfieldservices.com">billing@greatlakesfieldservices.com</a></p>
+    <p><a href="mailto:skender@greatlakesfieldservices.com">skender@greatlakesfieldservices.com</a></p>
+    <p class="small"><strong>Preferred:</strong> ops@ for new vendor/bank pilots.</p>
   </div>
-  <!-- Helps Formspree route replies -->
-  <input type="hidden" name="_subject" value="New GLFS website inquiry" />
-  <input type="hidden" name="_replyto" value="%email%" />
-  <button class="btn primary" type="submit">Send Request</button>
-  <p class="form-note">We respond to legitimate vendor/bank inquiries. Marketing solicitations will not be returned.</p>
-</form>
+
+  <div class="contact-card">
+    <form class="contact-form" action="https://formspree.io/f/xpqqyvwr" method="POST">
+      <div class="cf-head">
+        <h3 class="cf-title">Request a Pilot / Onboarding</h3>
+        <p class="cf-sub">Tell us what you need and we’ll respond fast.</p>
       </div>
-    </div>
+
+      <div class="cf-grid">
+        <div class="cf-field">
+          <label for="cf-name">Full Name <span class="req">*</span></label>
+          <input id="cf-name" name="name" type="text" required autocomplete="name" />
+        </div>
+
+        <div class="cf-field">
+          <label for="cf-company">Company / Organization <span class="req">*</span></label>
+          <input id="cf-company" name="company" type="text" required autocomplete="organization" />
+        </div>
+
+        <div class="cf-field">
+          <label for="cf-email">Email <span class="req">*</span></label>
+          <input id="cf-email" name="email" type="email" required autocomplete="email" />
+        </div>
+
+        <div class="cf-field">
+          <label for="cf-phone">Phone (optional)</label>
+          <input id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+        </div>
+
+        <div class="cf-field cf-span2">
+          <label for="cf-service">Service Needed</label>
+          <select id="cf-service" name="service">
+            <option value="Exterior Inspection">Exterior Inspection</option>
+            <option value="Interior / Vacant Inspection">Interior / Vacant Inspection</option>
+            <option value="Occupancy Verification">Occupancy Verification</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="cf-field cf-span2">
+          <label for="cf-location">Property Location (City / County / ZIP) <span class="req">*</span></label>
+          <input id="cf-location" name="location" type="text" required placeholder="e.g., Detroit, Wayne County 48201" />
+        </div>
+
+        <div class="cf-field cf-span2">
+          <label for="cf-turnaround">Turnaround Requirement</label>
+          <select id="cf-turnaround" name="turnaround">
+            <option value="24 hours">24 hours</option>
+            <option value="48 hours">48 hours</option>
+            <option value="72 hours">72 hours</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="cf-field cf-span2">
+          <label for="cf-message">Message / Notes <span class="req">*</span></label>
+          <textarea id="cf-message" name="message" required rows="7" placeholder="Volume, due dates, portal/reporting requirements, and any property specifics."></textarea>
+        </div>
+      </div>
+
+      <input type="hidden" name="_subject" value="New GLFS website inquiry" />
+      <button class="cf-btn" type="submit">Send Request</button>
+      <p class="cf-note">We respond to legitimate vendor/bank inquiries. Marketing solicitations will not be returned.</p>
+    </form>
   </div>
+</div>
 </section>
 
     <footer>
