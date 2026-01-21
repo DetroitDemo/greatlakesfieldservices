@@ -341,53 +341,37 @@
 }
 
 
-/* === Mobile header polish (centered + non-sticky) === */
-@media (max-width: 720px){
-  .top{ position: static !important; padding: 10px 0 6px 0 !important; }
-  .topbar{
+/* === Mobile header fixes (no sticky + centered) === */
+@media (max-width: 820px){
+  /* If header/topbar is sticky/fixed on desktop, turn it off on mobile */
+  header, .header, .topbar, .site-header, .top, .topBar {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Prevent any horizontal drift */
+  html, body { overflow-x: hidden; }
+
+  /* Center the header container/pill */
+  .container, .header__inner, .topbar__inner, .topbar-inner, .nav-wrap {
+    max-width: 100% !important;
+  }
+
+  /* If your header uses a “pill” wrapper, make it full-width and centered */
+  .topbar, .header, .site-header{
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: calc(100% - 24px) !important;
-    margin: 0 auto !important;
-    border-radius: 18px !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    padding: 12px 14px !important;
-  }
-  .brand{
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
-    gap: 10px !important;
-  }
-  .btxt{ text-align: left; }
-  .brand strong{ display:block; font-size: 15px !important; line-height: 1.1 !important; }
-  .brand span{ display:block; font-size: 12px !important; opacity: .9; }
-
-  .topbar nav{
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 10px !important;
-    justify-items: stretch !important;
-  }
-  .topbar nav a{
-    text-align: center !important;
-    padding: 10px 12px !important;
-    border-radius: 14px !important;
-    background: rgba(255,255,255,0.06) !important;
-    border: 1px solid rgba(255,255,255,0.14) !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
   }
 
-  .actions{
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-  .actions .btn{
-    width: 100% !important;
-    max-width: 520px !important;
-  }
+  /* Make nav links wrap nicely */
+  nav a { white-space: nowrap; }
+
+  /* Tighten logo/brand and ensure centering */
+  .brand, .brand__text { align-items: center !important; }
 }
 </style>
 </head>
