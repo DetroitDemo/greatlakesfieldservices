@@ -265,7 +265,7 @@
         </nav>
 
         <div class="actions">
-          <a class="btn" href="tel:+13138082000">Call (313) 808-2000</a>
+          <a class="btn" href="tel:+1">Call </a>
           <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
         </div>
       </div>
@@ -307,7 +307,7 @@
         <div class="quick">
           <div class="qrow"><b>Ops:</b> <a href="mailto:ops@greatlakesfieldservices.com" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)">ops@greatlakesfieldservices.com</a></div>
           <div class="qrow"><b>Billing:</b> <a href="mailto:billing@greatlakesfieldservices.com" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)">billing@greatlakesfieldservices.com</a></div>
-          <div class="qrow"><b>Phone:</b> <a href="tel:+13138082000" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)">(313) 808-2000</a></div>
+          <div class="qrow"><b>Phone:</b> <a href="tel:+1" style="color:inherit; text-decoration:underline; text-decoration-color:rgba(255,255,255,.35)"></a></div>
         </div>
       </div>
     </div>
@@ -388,7 +388,7 @@
               <li><b>Ops:</b> ops@greatlakesfieldservices.com</li>
               <li><b>Billing:</b> billing@greatlakesfieldservices.com</li>
               <li><b>Direct:</b> skender@greatlakesfieldservices.com</li>
-              <li><b>Phone:</b> (313) 808-2000</li>
+              <li><b>Phone:</b> </li>
             </ul>
           </div>
         </div>
@@ -396,24 +396,75 @@
     </section>
 
     <section id="contact" class="card">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p>Request a pilot, expand coverage, or discuss SLA and volume needs.</p>
+  <div class="container">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <p>For pilot requests, onboarding, or coverage questions, send a message below. We typically respond within 24–48 hours.</p>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p><a href="mailto:ops@greatlakesfieldservices.com">ops@greatlakesfieldservices.com</a></p>
+        <p><a href="mailto:billing@greatlakesfieldservices.com">billing@greatlakesfieldservices.com</a></p>
+        <p><a href="mailto:skender@greatlakesfieldservices.com">skender@greatlakesfieldservices.com</a></p>
+        <p class="small">Preferred: ops@ for new vendor/bank pilots.</p>
       </div>
-      <div class="section-body">
-        <div class="cta">
-          <div>
-            <h3>Ready to run a pilot in Michigan?</h3>
-            <p>Email ops with your footprint, volume, SLA needs, and reporting requirements. We’ll respond quickly with a simple pilot plan and pricing.</p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Email Ops</a>
-            <a class="btn" href="tel:+13138082000">Call (313) 808-2000</a>
-            <a class="btn" href="mailto:billing@greatlakesfieldservices.com?subject=Vendor%20Billing%20Question">Billing</a>
-          </div>
-        </div>
+      <div class="contact-card">
+        <form class="contact-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+  <div class="form-grid">
+    <label>
+      <span>Full Name <em>*</em></span>
+      <input name="name" type="text" required autocomplete="name" />
+    </label>
+    <label>
+      <span>Company / Organization <em>*</em></span>
+      <input name="company" type="text" required autocomplete="organization" />
+    </label>
+    <label>
+      <span>Email <em>*</em></span>
+      <input name="email" type="email" required autocomplete="email" />
+    </label>
+    <label>
+      <span>Phone (optional)</span>
+      <input name="phone" type="tel" autocomplete="tel" />
+    </label>
+    <label class="span-2">
+      <span>Service Needed</span>
+      <select name="service">
+        <option value="Exterior Inspection">Exterior Inspection</option>
+        <option value="Interior / Vacant Inspection">Interior / Vacant Inspection</option>
+        <option value="Occupancy Verification">Occupancy Verification</option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+    <label class="span-2">
+      <span>Property Location (City / County / ZIP) <em>*</em></span>
+      <input name="location" type="text" required placeholder="e.g., Detroit, Wayne County 48201" />
+    </label>
+    <label class="span-2">
+      <span>Turnaround Requirement</span>
+      <select name="turnaround">
+        <option value="24 hours">24 hours</option>
+        <option value="48 hours">48 hours</option>
+        <option value="72 hours">72 hours</option>
+        <option value="Other">Other</option>
+      </select>
+    </label>
+    <label class="span-2">
+      <span>Message / Notes <em>*</em></span>
+      <textarea name="message" required rows="6" placeholder="Tell us what you need, volume, and any portal/reporting requirements."></textarea>
+    </label>
+  </div>
+  <!-- Helps Formspree route replies -->
+  <input type="hidden" name="_subject" value="New GLFS website inquiry" />
+  <input type="hidden" name="_replyto" value="%email%" />
+  <button class="btn primary" type="submit">Send Request</button>
+  <p class="form-note">We respond to legitimate vendor/bank inquiries. Marketing solicitations will not be returned.</p>
+</form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <footer>
       © 2026 Great Lakes Field Services LLC • Michigan Field Inspection Services
