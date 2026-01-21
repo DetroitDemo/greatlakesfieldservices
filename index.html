@@ -241,7 +241,7 @@
         position:fixed;
         top:0; left:0; right:0;
         z-index:1000;
-        padding: calc(10px + env(safe-area-inset-top)) 10px 10px;
+        padding: calc(6px + env(safe-area-inset-top)) 8px 6px;
         display:flex;
         justify-content:center;
         background: rgba(8,12,20,.55);
@@ -251,8 +251,8 @@
         width:100%;
         max-width: 100%;
         border-radius: 18px;
-        padding:12px 14px;
-        gap:10px;
+        padding:8px 12px;
+        gap:8px;
         flex-direction:column;
         align-items:center;
         justify-content:center;
@@ -260,9 +260,13 @@
       .brand{
         width:100%;
         justify-content:center;
-        gap:10px;
+        gap:8px;
       }
       .btxt{ text-align:center; }
+      .mark{width:30px; height:30px;}
+      .btxt strong{font-size:13px;}
+      .btxt span{font-size:11px;}
+
 
       nav{
         width:100%;
@@ -272,14 +276,22 @@
         gap:8px;
         padding:0;
       }
-      nav a{white-space:nowrap; font-size:12.5px; padding:7px 9px;}
+      nav a{white-space:nowrap; font-size:12.25px; padding:6px 8px;}
 
       .actions{
         width:100%;
         justify-content:center;
+        gap:8px;
+        flex-wrap:nowrap;
       }
+      .actions .btn{flex:1;}
+      .topbar .btn{padding:8px 10px; font-size:12.25px;}
+
+      /* Keep header compact on mobile */
+      nav .nav__cta{display:none;}
+      .mobile-cta{display:inline-flex;}
       /* More top padding so content never hides under the fixed, multi-row nav */
-      .wrap{padding: calc(178px + env(safe-area-inset-top)) 12px 70px;}
+      .wrap{padding: calc(152px + env(safe-area-inset-top)) 12px 70px;}
 
       .hero{grid-template-columns:1fr;}
       .brand{min-width: unset;}
@@ -454,6 +466,8 @@
   background: rgba(255,255,255,0.10);
 }
 
+.mobile-cta{display:none;}
+
 /* Vendor list */
 .vendor-list{
   padding-left: 18px;
@@ -533,7 +547,9 @@
         <a href="#work" class="nav__cta">Join Our Vendor Network</a>
         </nav>
 
-        <div class="actions"><a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
+        <div class="actions">
+          <a class="btn mobile-cta" href="#work">Join Our Vendor Network</a>
+          <a class="btn primary" href="mailto:ops@greatlakesfieldservices.com?subject=Pilot%20Request%20%E2%80%94%20Great%20Lakes%20Field%20Services">Request a Pilot</a>
         </div>
       </div>
     </div>
