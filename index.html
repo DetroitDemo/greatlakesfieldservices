@@ -396,6 +396,16 @@
 #work .section-head p{
   font-size: 1.06rem;
 }
+
+
+/* Honeypot: visually hidden anti-spam field */
+.hp{
+  position:absolute !important;
+  left:-9999px !important;
+  width:1px !important;
+  height:1px !important;
+  overflow:hidden !important;
+}
 </style>
 </head>
 
@@ -564,6 +574,17 @@
 
   <div class="contact-card">
     <form class="contact-form" action="https://formspree.io/f/xpqqyvwr" method="POST">
+
+  <!-- Anti-spam (honeypot): humans leave this blank -->
+  <div class="hp" aria-hidden="true">
+    <label>Leave this field blank
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <input type="hidden" name="inquiry_type" value="Client / Pilot Request" />
+  <input type="hidden" name="page_url" value="" />
+  <input type="hidden" name="submitted_at" value="" />
+
       <div class="cf-head">
         <h3 class="cf-title">Request a Pilot / Onboarding</h3>
         <p class="cf-sub">Tell us what you need and we’ll respond fast.</p>
@@ -656,6 +677,17 @@
 
       <div class="contact-card">
         <form class="vendor-form" action="https://formspree.io/f/xpqqyvwr" method="POST">
+
+  <!-- Anti-spam (honeypot): humans leave this blank -->
+  <div class="hp" aria-hidden="true">
+    <label>Leave this field blank
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <input type="hidden" name="inquiry_type" value="Vendor Network" />
+  <input type="hidden" name="page_url" value="" />
+  <input type="hidden" name="submitted_at" value="" />
+
           <div class="cf-head">
             <h3 class="cf-title">Vendor Network Application</h3>
             <p class="cf-sub">Submit once — we’ll reach out when we have work in your area.</p>
@@ -729,7 +761,13 @@
       if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
 
       try{
-        const res = await fetch(form.action, {
+        // Populate metadata (helps Formspree spam scoring)
+      const pageInput = form.querySelector('input[name="page_url"]');
+      const timeInput = form.querySelector('input[name="submitted_at"]');
+      if(pageInput) pageInput.value = window.location.href;
+      if(timeInput) timeInput.value = new Date().toISOString();
+
+      const res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
